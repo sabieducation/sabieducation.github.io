@@ -1,7 +1,7 @@
 <html>
 <body>
 
-<button onclick="myFunction()">Click me</button>
+<button onclick="myFunction()">About the Visualization</button>
 
 <p id="demo"></p>
 
