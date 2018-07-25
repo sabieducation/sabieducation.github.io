@@ -36,7 +36,7 @@ function myFunction() {
 </div>
 
 <script>
-d3.csv("https://github.com/sabieducation/sabieducation.github.io/blob/master/input", function(data) {
+d3.csv("https://github.com/sabieducation/sabieducation.github.io/blob/master/input.csv", function(data) {
     for (var i = 0; i < data.length; i++) {
         console.log(data[i].Name);
         console.log(data[i].Age);
