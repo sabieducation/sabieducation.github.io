@@ -1,2 +1,8 @@
 "Biswadeep Sarkar"
-<button onclick="Display the Information">About the Visualization</button>
+<button onclick="myFunction()">About the Visualization</button>
+
+<script>
+function myFunction() {
+    echo "Display the information";
+}
+</script>
