@@ -1,4 +1,15 @@
 "Biswadeep Sarkar"
-<button <a href="#0">
-  I'm kinda sick of doing this for buttons.
-</a>>About the Visualization</button>
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="myFunction()">About the Visualization</button>
+  
+ <script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+</script>
+
+</body>
+</html>
+
