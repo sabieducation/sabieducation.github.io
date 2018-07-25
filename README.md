@@ -1,8 +1,4 @@
 "Biswadeep Sarkar"
-<button onclick="myFunction()">About the Visualization</button>
-
-<script>
-function myFunction() {
-    echo "Display the information";
-}
-</script>
+<button <a href="#0">
+  I'm kinda sick of doing this for buttons.
+</a>>About the Visualization</button>
