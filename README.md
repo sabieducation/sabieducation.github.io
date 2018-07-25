@@ -1,2 +1,2 @@
 "Biswadeep Sarkar"
-<button type="button">About the Visualization</button>
+<button onclick="Display the Information">About the Visualization</button>
