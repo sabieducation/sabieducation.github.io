@@ -34,3 +34,12 @@ function myFunction() {
   <div style="width: 230px;">23</div>
   <div style="width: 420px;">42</div>
 </div>
+
+<script>
+d3.csv("https://github.com/sabieducation/sabieducation.github.io/blob/master/input", function(data) {
+    for (var i = 0; i < data.length; i++) {
+        console.log(data[i].Name);
+        console.log(data[i].Age);
+    }
+});
+</script>
