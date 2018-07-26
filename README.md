@@ -36,7 +36,7 @@ function myFunction() {
 </div>
 
 <script>
-d3.csv("input.csv", function(data) {
+d3.csv("input", function(data) {
     for (var i = 0; i < data.length; i++) {
         console.log(data[i].Name);
         echo"Inside Loop";                           
