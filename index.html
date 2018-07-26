@@ -8,12 +8,7 @@ echo "index file v2"
 <script>
 function myFunction() {
   document.getElementById("demo").innerHTML = "Hello World";
-}
-
-</script>
-
-<script>
-            d3.csv("./employee.csv", function(data)
+  d3.csv("./employee.csv", function(data)
                 {
                     for(var i = 0; i < data.length; i++)
                     {
@@ -23,7 +18,10 @@ function myFunction() {
                     }
 
                 });
- </script>
-  
+}
+
+</script>
+
+ 
 </body>
 </html>
