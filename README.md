@@ -12,7 +12,7 @@ function myFunction() {
 </script>
 
 <script>
-echo "Before Read"
+
 d3.tsv("data.tsv", function(data) {
   console.log(data[0].x);
 });
