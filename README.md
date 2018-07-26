@@ -35,12 +35,6 @@ function myFunction() {
   <div style="width: 420px;">42</div>
 </div>
 
-<script>
-d3.csv("input", function(data) {
-    for (var i = 0; i < data.length; i++) {
-        console.log(data[i].Name);
-        echo"Inside Loop";                           
-        console.log(data[i].Age);
-    }
+d3.tsv("data.tsv", function(data) {
+  console.log(data[0].x);
 });
-</script>
