@@ -1,25 +1,56 @@
+<!DOCTYPE HTML>
 <html>
-    console.log("Index File");
-    <head>
-        <meta charset = "utf-8"/>
-        <title>Loading CSV file in D3</title>
-        <script src = "./d3/d3.min.js"></script>
-    </head>
+<head>
+  <script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      title:{
+        text: "Olympic Medals of all Times (till 2012 Olympics)"
+      },
+      data: [
+      {
+        type: "bar",
+        dataPoints: [
+        { y: 198, label: "Italy"},
+        { y: 201, label: "China"},
+        { y: 202, label: "France"},
+        { y: 236, label: "Great Britain"},
+        { y: 395, label: "Soviet Union"},
+        { y: 957, label: "USA"}
+        ]
+      },
+      {
+        type: "bar",
+        dataPoints: [
+        { y: 166, label: "Italy"},
+        { y: 144, label: "China"},
+        { y: 223, label: "France"},
+        { y: 272, label: "Great Britain"},
+        { y: 319, label: "Soviet Union"},
+        { y: 759, label: "USA"}
+        ]
+      },
+      {
+        type: "bar",
+        dataPoints: [
+        { y: 185, label: "Italy"},
+        { y: 128, label: "China"},
+        { y: 246, label: "France"},
+        { y: 272, label: "Great Britain"},
+        { y: 296, label: "Soviet Union"},
+        { y: 666, label: "USA"}
+        ]
+      }
+      ]
+    });
 
-    <body>
-        <script>
-            console.log("Index File before read");
-            d3.csv("d3.csv", function(data)
-                {
-                    for(var i = 0; i < data.length; i++)
-                    {
-                        console.log("Index File inside loop");
-                        console.log(data[i]);
-                        //console.log(data[i].Name);
-                        //console.log(data[i].Age);
-                    }
-
-                });
-        </script>
-    </body>
+chart.render();
+}
+</script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
+<body>
+  <div id="chartContainer" style="height: 300px; width: 100%;">
+  </div>
+</body>
 </html>
