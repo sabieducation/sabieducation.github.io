@@ -75,13 +75,13 @@ a.step-link:hover, a.active {
 #step1-left-annotation {
   left: 30px;
   top: 120px;
-  width: 400px;
+  width: 200px;
 }
  
 #step1-right-annotation {
   left: 770px;
   top: 120px;
-  width: 1px;
+  width: 200px;
 }
 
 #step2-center-annotation {
