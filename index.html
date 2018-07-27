@@ -85,7 +85,7 @@ chart.attr("width",width + 2*margin)
     .selectAll("rect")
 	.data(data)
     .enter().append("rect")
-    .attr("width",60)
+    .attr("width",40)
     .attr("height",function(d) { return height - y(d); })
     .attr("x",function(d,i) { return x(i+2003); })
     .attr("y",function(d) { return y(d); });
