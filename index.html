@@ -11,6 +11,20 @@
   <script src="js/d3.v2.min.js"></script>
 </head>
 <body>
+	
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "We have a database of Auto insurance Collision and Comprehensive Claims by  Year, Make, Model and Auto Body type. We want to design a visualization to find out first how Average number of Claims (Collision and Comprehensive)  changed over Manufactured year to see if there is any relation in between and next - Average Number of Collisions and Average Number of Comprehensive Claims aby Year, Make and Model to assess which type of Car may have potential for higher cost of insurance.Chart 1 - Shows Average number of Collision and Average Number of Comprehensive Claims against manufactured Years. Chart 2 - Shows Average number of Collision and Average Number of Comprehensive Claims by Year, Make and Model.";
+}
+</script>
+
+<p>When you click "Try it", a function will be called.</p>
+<p>The function will display a message.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+	
   <div id="container">
     <h1>Canadian Auto Insurance Claim Data</h1>
     <h2 class="subtitle">Understanding the trend in Collision and Comprehensive Claims from Year 2003 to Year 2015</h2>
