@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="right">
+<p align="center">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -455,7 +455,7 @@ svg.append("text")
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-var svg2 = d3.select("#step3-annotation > svg),
+var svg2 = d3.select("#step3-annotation > svg"),
     margin = {top: 40, right: 20, bottom: 100, left: 60},
     width = +svg2.attr("width") - margin.left - margin.right,
     height = +svg2.attr("height") - margin.top - margin.bottom;
