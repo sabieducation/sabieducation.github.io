@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="left">
+<p align="right">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -432,7 +432,7 @@ svg.append("text")
             <h4>Average Number of Comprehensive Claims from Year 2003 to 2015</h4>
             
 <!-- CHART 3 STARTS--------------------------------------------------------------------------- -->
-<!-- CHART 2 STARTS--------------------------------------------------------------------------- -->
+<!-- CHART 3 STARTS--------------------------------------------------------------------------- -->
 		  
 <meta charset="UTF-8">
 <title></title>
@@ -455,15 +455,15 @@ svg.append("text")
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-var svg = d3.select("svg"),
+var svg1 = d3.select("svg"),
     margin = {top: 40, right: 20, bottom: 100, left: 60},
-    width = +svg.attr("width") - margin.left - margin.right,
-    height = +svg.attr("height") - margin.top - margin.bottom;
+    width = +svg1.attr("width") - margin.left - margin.right,
+    height = +svg1.attr("height") - margin.top - margin.bottom;
 
 var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
     y = d3.scaleLinear().rangeRound([height, 0]);
 
-var g = svg.append("g")
+var g = svg1.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var data = [
