@@ -634,7 +634,7 @@ var data = [
 
     <input onclick="update()" value="" style="display:none"/>
     <title>Text</title>
-    <input value="50" min="0" max="100" id="maximum" style="display:none"/>
+    <input value="50" min="0" max="100" id="max" style="display:none"/>
     <div id="vis">
     </div>
     
@@ -644,7 +644,7 @@ var data = [
 var width = 600;
 var height = 350;
 
-var maxValue = d3.select('#maximum')
+var maxValue = d3.select('#max')
     .node()
     .value;
 
@@ -715,7 +715,7 @@ svg.append("text")
 
 //function update() {
 
-    maxValue = d3.select('#maximum')
+    maxValue = d3.select('#max')
         .node()
         .value;
     var exampleData = [69.96, 78.6,	87.23, 103.7, 110.7, 111.3, 110.1,
