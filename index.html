@@ -1,8 +1,8 @@
 <!doctype html>
 <head>
   <meta charset="utf-8">
-  <title>Dynamic Annotations in a Visualization Stepper</title>
-  <meta name="author" content="Jim Vallandingham">
+  <title>Canadian Auto Insurance Claim Data</title>
+  <meta name="author" content="">
   <meta name="description" content="">
 
   <link rel="stylesheet" href="css/reset.css">
@@ -28,7 +28,7 @@ function myFunction() {
     <h1>Canadian Auto Insurance Claim Data</h1>
     <h2 class="subtitle">Understanding the trend in Collision and Comprehensive Claims from Year 2003 to Year 2015</h2>
     <div id="vis-nav">
-      <a href="#" id="step1" class="step-link active">Claim Data by Make</a>
+      <a href="#" id="step1" class="step-link active">Collisions Data by Make</a>
       <a href="#" id="step2" class="step-link">Comprehensive Data by Make</a>
       <a href="#" id="step3" class="step-link">Collision Data by Year</a>
       <a href="#" id="step4" class="step-link">Comprehensive Data by Year</a>
@@ -38,75 +38,160 @@ function myFunction() {
         <div class="annotation-step" id="step1-annotation" style="display:block;">
           <div class="annotation" id="step1-left-annotation" >
             <h4></h4>
-		  
-		  <script type="text/javascript">
-  window.onload = function () {
-    var chart = new CanvasJS.Chart("chartContainer",
-    {
-      title:{
-        text: "Olympic Medals of all Times (till 2012 Olympics)"
-      },
-      axisY: {
-        title: "Medals won",
-        maximum: 1010
-      },
-      data: [
-      {
-        type: "bar",
-        showInLegend: true,
-        legendText: "Gold",
-        color: "gold",
-        dataPoints: [
-        { y: 198, label: "Italy"},
-        { y: 201, label: "China"},
-        { y: 202, label: "France"},
-        { y: 236, label: "Great Britain"},
-        { y: 395, label: "Soviet Union"},
-        { y: 957, label: "USA"}
-        ]
-      },
-      {
-        type: "bar",
-        showInLegend: true,
-        legendText: "Silver",
-        color: "silver",
-        dataPoints: [
-        { y: 166, label: "Italy"},
-        { y: 144, label: "China"},
-        { y: 223, label: "France"},
-        { y: 272, label: "Great Britain"},
-        { y: 319, label: "Soviet Union"},
-        { y: 759, label: "USA"}
-        ]
-      },
-      {
-        type: "bar",
-        showInLegend: true,
-        legendText: "Bronze",
-        color: "#DCA978",
-        dataPoints: [
-        { y: 185, label: "Italy"},
-        { y: 128, label: "China"},
-        { y: 246, label: "France"},
-        { y: 272, label: "Great Britain"},
-        { y: 296, label: "Soviet Union"},
-        { y: 666, label: "USA"}
-        ]
-      }
-      ]
-    });
 
-chart.render();
+<!-- CHART 1 STARTS--------------------------------------------------------------------------- -->
+<!-- CHART 1 STARTS--------------------------------------------------------------------------- -->
+
+<style>
+
+.bar {
+  fill: darkgreen;
 }
+
+.bar:hover {
+  fill: violet;
+}
+
+.axis--x path {
+  display: none;
+}
+
+</style>
+<svg width="660" height="400"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    margin = {top: 40, right: 20, bottom: 100, left: 60},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom;
+
+var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
+    y = d3.scaleLinear().rangeRound([height, 0]);
+
+var g = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data = [
+{Make: "ACURA", Collisions: 114},
+{Make: "AUDI", Collisions: 180.14},
+{Make: "BMW", Collisions: 170.37},
+{Make: "BUICK", Collisions: 67.85},
+{Make: "BUICK/CHEV/GMC", Collisions: 95.07},
+{Make: "BUICK/CHEVROLET", Collisions: 109},
+{Make: "BUICK/SATURN", Collisions: 89},
+{Make: "CADILLAC", Collisions: 122.39},
+{Make: "CHEV/GMC/OLDS", Collisions: 52.5},
+{Make: "CHEV/PONTIAC", Collisions: 72},
+{Make: "CHEV/SATURN", Collisions: 53.33},
+{Make: "CHEVROLET", Collisions: 78.74},
+{Make: "CHEVROLET/GMC", Collisions: 82.86},
+{Make: "CHRYSLER", Collisions: 85.5},
+{Make: "CHRYSLER/DODGE", Collisions: 80.27},
+{Make: "DODGE", Collisions: 104.06},
+{Make: "FIAT", Collisions: 106.5},
+{Make: "FORD", Collisions: 95.7},
+{Make: "FORD/MERCURY", Collisions: 67.17},
+{Make: "GMC", Collisions: 77.75},
+{Make: "HONDA", Collisions: 97.53},
+{Make: "HUMMER", Collisions: 78.57},
+{Make: "HYUNDAI", Collisions: 97.35},
+{Make: "INFINITI", Collisions: 146.17},
+{Make: "JAGUAR", Collisions: 154.28},
+{Make: "JEEP", Collisions: 94.5},
+{Make: "KIA", Collisions: 96.53},
+{Make: "LAND ROVER", Collisions: 188.84},
+{Make: "LEXUS", Collisions: 142.73},
+{Make: "LINCOLN", Collisions: 118.02},
+{Make: "MAZDA", Collisions: 93.59},
+{Make: "MERCEDES-BENZ", Collisions: 175.93},
+{Make: "MINI", Collisions: 102.22},
+{Make: "MITSUBISHI", Collisions: 140.5},
+{Make: "NISSAN", Collisions: 114.75},
+{Make: "OLDSMOBILE", Collisions: 37.25},
+{Make: "PONTIAC", Collisions: 66.15},
+{Make: "PONTIAC/SATURN", Collisions: 39},
+{Make: "PORSCHE", Collisions: 218.88},
+{Make: "SAAB", Collisions: 94},
+{Make: "SATURN", Collisions: 70.56},
+{Make: "SCION", Collisions: 158.14},
+{Make: "SCION/SUBARU", Collisions: 305.5},
+{Make: "SMART", Collisions: 55.77},
+{Make: "SUBARU", Collisions: 103.02},
+{Make: "SUZUKI", Collisions: 103.91},
+{Make: "TOYOTA", Collisions: 100.58},
+{Make: "VOLKSWAGEN", Collisions: 110.63},
+{Make: "VOLVO", Collisions: 100.53}
+];
+
+  x.domain(data.map(function(d) { return d.Make; }));
+  y.domain([0, d3.max(data, function(d) { return d.Collisions; })+50]);
+
+  g.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
+      .selectAll("text")  
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", ".15em")
+      .attr("transform", "rotate(-65)");;
+  
+  g.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")");
+      //.style("text-anchor", "bottom")
+      //.text("Make");
+      //.attr("dx", "-.8em")
+      //.attr("dy", ".15em")
+      //.attr("transform", "rotate(-65)");
+      
+  g.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top) + 60)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Make Vs Average # of Collisions");
+        
+  g.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y).ticks(10))
+      .append("text")
+      .attr("transform", "rotate(-90)");
+      
+      
+  g.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Avergae # Of Collisions"); 
+      
+
+  g.selectAll(".bar")
+    .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .transition()
+      .duration(1000)
+      .attr("x", function(d) { return x(d.Make); })
+      .attr("y", function(d) { return y(d.Collisions); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.Collisions); });
+
+
 </script>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
-<body>
-  <div id="chartContainer" style="height: 300px; width: 100%;">
-  </div>
-</body>
+
+
+
+
 		  
-		  
-		  
+
+<!-- CHART 1 ENDS--------------------------------------------------------------------------- -->
+<!-- CHART 1 ENDS--------------------------------------------------------------------------- -->
 		  
           </div>
           <div class="annotation" id="step1-right-annotation" >
@@ -115,85 +200,161 @@ chart.render();
         </div>
         <div class="annotation-step" id="step2-annotation">
           <div class="annotation" id="step2-center-annotation" >
-            <h4>Average Number of Collision Claims from Year 2003 to 2015</h4>
-            
-<script src="//d3js.org/d3.v3.min.js"></script>
+            <h4></h4>
+		  
+		  
+<!-- CHART 2 STARTS--------------------------------------------------------------------------- -->
+<!-- CHART 2 STARTS--------------------------------------------------------------------------- -->
 
 <style>
-.chart rect { fill: blue }
-.axis path,
-.axis line {
-    fill: none;
-    stroke: black;
-    shape-rendering: crispEdges;
+
+.bar {
+  fill: brown;
 }
 
-.axis text {
-    font-family: sans-serif;
-    font-size: 11px;
-    
+.bar:hover {
+  fill: yellow;
 }
+
+.axis--x path {
+  display: none;
+}
+
 </style>
-
-
-<p><span id="data"></span></p>
-<svg class="chart"></svg>
-
+<svg width="660" height="400"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
-var margin = 30;
-var width = 600;
-var height = 300;
 
+var svg = d3.select("svg"),
+    margin = {top: 40, right: 20, bottom: 100, left: 60},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom;
 
-var data = [64.33,72.24, 76.15,89.32,96.58,104.7,108.1,116.7,
-                       123.3,135.1,146.5,154.5,144.4];
+var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
+    y = d3.scaleLinear().rangeRound([height, 0]);
 
+var g = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var x = d3.scale.ordinal()
-	.domain([2003,2004,2005,2006,2007,2008,2009,2010,2011,2012
-                         ,2013,2014,2015])
-    .rangeBands([0,width]);
-    
-var y = d3.scale.linear()
-	.domain([0,160])
-    .range([height,0]);
+var data = [
+{Make: "ACURA", Collisions: 137.76},
+{Make: "AUDI", Collisions: 151.36},
+{Make: "BMW", Collisions: 186.78},
+{Make: "BUICK", Collisions: 62.23},
+{Make: "BUICK/CHEV/GMC", Collisions: 109.57},
+{Make: "BUICK/CHEVROLET", Collisions: 104},
+{Make: "BUICK/SATURN", Collisions: 122.37},
+{Make: "CADILLAC", Collisions: 164.49},
+{Make: "CHEV/GMC/OLDS", Collisions: 48.5},
+{Make: "CHEV/PONTIAC", Collisions: 70.1},
+{Make: "CHEV/SATURN", Collisions: 44},
+{Make: "CHEVROLET", Collisions: 79.12},
+{Make: "CHEVROLET/GMC", Collisions: 141.64},
+{Make: "CHRYSLER", Collisions: 90.82},
+{Make: "CHRYSLER/DODGE", Collisions: 73.27},
+{Make: "DODGE", Collisions: 156.08},
+{Make: "FIAT", Collisions: 79.25},
+{Make: "FORD", Collisions: 139.28},
+{Make: "FORD/MERCURY", Collisions: 68.87},
+{Make: "GMC", Collisions: 110},
+{Make: "HONDA", Collisions: 91.73},
+{Make: "HUMMER", Collisions: 241.37},
+{Make: "HYUNDAI", Collisions: 72.65},
+{Make: "INFINITI", Collisions: 130.34},
+{Make: "JAGUAR", Collisions: 145.71},
+{Make: "JEEP", Collisions: 108.92},
+{Make: "KIA", Collisions: 82.84},
+{Make: "LAND ROVER", Collisions: 319.42},
+{Make: "LEXUS", Collisions: 139.24},
+{Make: "LINCOLN", Collisions: 122.59},
+{Make: "MAZDA", Collisions: 79.31},
+{Make: "MERCEDES-BENZ", Collisions: 159.51},
+{Make: "MINI", Collisions: 97.22},
+{Make: "MITSUBISHI", Collisions: 125.15},
+{Make: "NISSAN", Collisions: 102.05},
+{Make: "OLDSMOBILE", Collisions: 38.4},
+{Make: "PONTIAC", Collisions: 55.32},
+{Make: "PONTIAC/SATURN", Collisions: 56},
+{Make: "PORSCHE", Collisions: 218.42},
+{Make: "SAAB", Collisions: 104.85},
+{Make: "SATURN", Collisions: 64.5},
+{Make: "SCION", Collisions: 105.85},
+{Make: "SCION/SUBARU", Collisions: 152.5},
+{Make: "SMART", Collisions: 47},
+{Make: "SUBARU", Collisions: 118.34},
+{Make: "SUZUKI", Collisions: 64.71},
+{Make: "TOYOTA", Collisions: 109.28},
+{Make: "VOLKSWAGEN", Collisions: 98.71},
+{Make: "VOLVO", Collisions: 85.91}
+];
 
-var chart = d3.select(".chart");
+  x.domain(data.map(function(d) { return d.Make; }));
+  y.domain([0, d3.max(data, function(d) { return d.Collisions; })+50]);
 
-chart.attr("width",width + 2*margin)
-    .attr("height",height + 2*margin)
-    .append("g")
-        .attr("transform","translate(" + margin + "," + margin + ")")
-    .selectAll("rect")
-	.data(data)
+  g.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
+      .selectAll("text")  
+      .style("text-anchor", "end")
+      .attr("dx", "-.8em")
+      .attr("dy", ".15em")
+      .attr("transform", "rotate(-65)");;
+  
+  g.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")");
+      //.style("text-anchor", "bottom")
+      //.text("Make");
+      //.attr("dx", "-.8em")
+      //.attr("dy", ".15em")
+      //.attr("transform", "rotate(-65)");
+      
+  g.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top) + 60)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Make Vs Average # of Comprehensive");
+        
+  g.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y).ticks(10))
+      .append("text")
+      .attr("transform", "rotate(-90)");
+      
+      
+  g.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Avergae # Of Comprehensive"); 
+      
+
+  g.selectAll(".bar")
+    .data(data)
     .enter().append("rect")
-    .attr("width",40)
-    .attr("height",function(d) { return height - y(d); })
-    .attr("x",function(d,i) { return x(i+2003); })
-    .attr("y",function(d) { return y(d); });
+      .attr("class", "bar")
+      .transition()
+      .duration(1000)
+      .attr("x", function(d) { return x(d.Make); })
+      .attr("y", function(d) { return y(d.Collisions); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.Collisions); });
 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom")
-    .ticks(1);
 
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .ticks(5);
-
-chart.append("g")
-    .attr("transform", "translate(" + margin + "," + (height+margin) + ")")
-    .attr("class","axis")
-    .call(xAxis);
-    
-chart.append("g")
-    .attr("transform", "translate(" + margin + "," + margin + ")")
-    .attr("class","axis")
-    .call(yAxis);
 </script>
 
 
+
+
+
+<!-- CHART 2 ENDS--------------------------------------------------------------------------- -->
+<!-- CHART 2 ENDS--------------------------------------------------------------------------- -->
             
             
             
