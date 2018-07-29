@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="right">
+<p align="left">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -505,6 +505,7 @@ svg.append("text")
     border: 1px solid #6F257F;
     padding: 14px;
     text-align: center;
+    z-index: 10000;
     }
     </style>
 
@@ -708,7 +709,7 @@ var exampleData_2 = ["ACURA",
               .style("left", d3.event.pageX - 50 + "px")
               .style("top", d3.event.pageY - 70 + "px")
               .style("display", "inline-block")
-              .html(exampleData_2[i]+ ":" + "\t" + (height - yscale(d)));
+              .html(exampleData_2[i]+ ":" + "\t" + (d));
         })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
         
@@ -792,6 +793,7 @@ var exampleData_2 = ["ACURA",
     border: 1px solid #6F257F;
     padding: 14px;
     text-align: center;
+    z-index: 10000;
     }
     </style>
 
@@ -919,7 +921,7 @@ svg2.append("text")
               .style("left", d3.event.pageX - 50 + "px")
               .style("top", d3.event.pageY - 70 + "px")
               .style("display", "inline-block")
-              .html("Y" + exampleData_2[i]+ ":" + "\t" + (height - yscale(d)));})
+              .html("Y" + exampleData_2[i]+ ":" + "\t" + (d));})
     	.on("mouseout", function(d){ tooltip.style("display", "none");});
         
 
