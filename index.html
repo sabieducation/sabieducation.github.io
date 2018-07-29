@@ -57,12 +57,12 @@ function myFunction() {
 }
 
 </style>
-<svg width="900" height="650"></svg>
+<svg width="900" height="550"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
 var svg1 = d3.select("svg"),
-    margin = {top: 40, right: 20, bottom: 100, left: 60},
+    margin = {top: 40, right: 20, bottom: 40, left: 60},
     width = +svg1.attr("width") - margin.left - margin.right,
     height = +svg1.attr("height") - margin.top - margin.bottom;
 
@@ -240,7 +240,7 @@ var data = [
 
     
 var width = 900;
-var height = 650;
+var height = 550;
 
 var maxValue = d3.select('#maximum')
     .node()
