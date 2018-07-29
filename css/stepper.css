@@ -25,6 +25,7 @@ a.step-link:hover, a.active {
   margin: auto;
   padding-top: 20px;
   width: 980px;
+  z-index: 100;
 }
 
 /* Here is our relatively positioned
@@ -35,6 +36,7 @@ a.step-link:hover, a.active {
   width: 980px;
   height: 700px;
   margin-top: 10px;
+  z-index: 100;
 }
 
 /* All the .annotation-step divs are inside
