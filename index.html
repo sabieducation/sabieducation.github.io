@@ -69,7 +69,7 @@ function myFunction() {
 }
 
 </style>
-<svg width="750" height="500"></svg>
+<svg width="900" height="500"></svg>
 
 <script>
 
@@ -197,7 +197,7 @@ var data = [
       .attr("height", function(d) { return height - y(d.Collisions); })
       .on("mousemove", function(d){
             tooltip
-              .style("left", d3.event.pageX - 50 + "px")
+              .style("left", d3.event.pageX - 250 + "px")
               .style("top", d3.event.pageY - 70 + "px")
               .style("display", "inline-block")
               .html((d.Make) + " had (Avg) "  + 
