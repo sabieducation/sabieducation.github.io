@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="left">
+<p align="center">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -496,7 +496,7 @@ svg3.append("text")
         .attr("x", (width / 15))             
         .attr("y", 0  - (margin.top/20) + 5)
         .attr("text-anchor", "left")  
-        .style("font-size", "20px") 
+        .style("font-size", "15px") 
         .style("text-decoration", "underline")  
         .text("Avg Number of Comprehensive Claims by Make");
         
@@ -687,14 +687,11 @@ var exampleData_2 = ["ACURA",
             
             <p>This is text up high.</p>
           </div>
-          <div class="annotation" id="step3-low-annotation" >
-            <h4></h4>
-            <p></p>
+          <div class="annotation" id="step3-low-annotation" >            
           </div>
         </div>
 	<div class="annotation-step" id="step4-annotation">
-          <div class="annotation" id="step4-high-annotation" >
-            <h4></h4>
+          <div class="annotation" id="step4-high-annotation" >           
 		  
 		  
 <!-- CHART 4 STARTS--------------------------------------------------------------------------- -->
@@ -787,8 +784,8 @@ svg2.append("text")
         
 svg2.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left + 30)
-      .attr("x",0 - (height / 2))
+      .attr("y", 0 - margin.left + 60)
+      .attr("x",0 - (height / 3))
       .attr("dy", ".25em")
       .style("text-anchor", "top")
       .text("Comprehensive(Avg)"); 
@@ -908,9 +905,7 @@ svg2.append("text")
             <p>This is text up high.</p>
           </div>
           <div class="annotation" id="step4-low-annotation" >
-            <h4>Low Annotation Title</h4>
-            <p>This is text down low.</p>
-          </div>
+            </div>
         </div>
       </div>
       <div id="vis-canvas"></div>
