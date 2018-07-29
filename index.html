@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="center">
+<p align="left">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -36,9 +36,7 @@ function myFunction() {
     <div id="vis-container">
       <div id="annotation-steps">
         <div class="annotation-step" id="step1-annotation" style="display:block;">
-          <div class="annotation" id="step1-left-annotation" >
-            <h4></h4>
-
+          
 <!-- CHART 1 STARTS--------------------------------------------------------------------------- -->
 <!-- CHART 1 STARTS--------------------------------------------------------------------------- -->
 
@@ -62,7 +60,7 @@ function myFunction() {
 <script>
 
 var svg1 = d3.select("svg"),
-    margin = {top: 40, right: 20, bottom: 60, left: 60},
+    margin = {top: 40, right: 20, bottom: 80, left: 60},
     width = +svg1.attr("width") - margin.left - margin.right,
     height = +svg1.attr("height") - margin.top - margin.bottom;
 
@@ -192,11 +190,8 @@ var data = [
 
 <!-- CHART 1 ENDS--------------------------------------------------------------------------- -->
 <!-- CHART 1 ENDS--------------------------------------------------------------------------- -->
-		  
-          </div>
-          <div class="annotation" id="step1-right-annotation" >
-            <h4></h4>
-         </div>
+	 
+          
         </div>
         <div class="annotation-step" id="step2-annotation">
           <div class="annotation" id="step2-center-annotation" >
