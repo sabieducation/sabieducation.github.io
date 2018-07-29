@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="left">
+<p align="center">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -607,9 +607,7 @@ var data = [
 <!-- CHART 4 STARTS--------------------------------------------------------------------------- -->
 
 		  
-		  
-		  
-		      <title></title>
+    <title></title>
     <link rel="stylesheet" href="../base.css">
     <script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <style>
@@ -617,6 +615,7 @@ var data = [
             fill: white;
         }
      
+    
     .bar {
          fill: brown;
          }
@@ -635,7 +634,7 @@ var data = [
     <input onclick="update()" value="" style="display:none"/>
     <title>Text</title>
     <input value="50" min="0" max="100" id="max" style="display:none"/>
-    <div id="vis">
+    <div id="vis2">
     </div>
     
 <script>
@@ -655,7 +654,7 @@ var margin = {
     bottom: 30
 };
 
-var svg = d3.select("#vis")
+var svg2 = d3.select("#vis2")
     .append("svg")
     .attr('width', width)
     .attr('height', height)
@@ -683,14 +682,14 @@ var xaxis = d3.axisBottom(xscale);
 
 var yaxis = d3.axisLeft(yscale);
 
-svg.append('g')
+svg2.append('g')
     .attr('transform', 'translate(0, ' + (height) + ')')
     .attr('class', 'x axis');
 
-svg.append('g')
+svg2.append('g')
     .attr('class', 'y axis');
     
-svg.append("text")
+svg2.append("text")
         .attr("x", (width / 5))             
         .attr("y", 0 + 10 - (margin.top/20))
         .attr("text-anchor", "left")  
@@ -698,7 +697,7 @@ svg.append("text")
         .style("text-decoration", "underline")  
         .text("Average # of Comprehensive by Year");
         
-svg.append("text")
+svg2.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left + 30)
       .attr("x",0 - (height / 2))
@@ -706,7 +705,7 @@ svg.append("text")
       .style("text-anchor", "top")
       .text("Comprehensive(Avg)"); 
       
-svg.append("text")             
+svg2.append("text")             
       .attr("transform",
             "translate(" + (width/2) + " ," + 
                            (height + margin.top + 20) + ")")
@@ -729,7 +728,7 @@ svg.append("text")
     //xscale.domain(["2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015"]);
     yscale.domain([0, maxValue]);
 
-    var bars = svg.selectAll(".bar")
+    var bars = svg2.selectAll(".bar")
         .data(exampleData);
 
     bars
@@ -764,7 +763,7 @@ svg.append("text")
         .attr('y', height)
         .remove();
 
-    var labels = svg.selectAll('.label')
+    var labels = svg2.selectAll('.label')
         .data(exampleData);
 
     var new_labels = labels
@@ -798,12 +797,12 @@ svg.append("text")
         .attr('opacity', 0)
         .remove();
 
-    svg.select('.x.axis')
+    svg2.select('.x.axis')
         .transition()
         .duration(duration)
         .call(xaxis);
 
-    svg.select('.y.axis')
+    svg2.select('.y.axis')
         .transition()
         .duration(duration)
         .call(yaxis);
@@ -813,6 +812,7 @@ svg.append("text")
 
 
     </script>
+
 
 <!-- CHART 4 ENDS--------------------------------------------------------------------------- -->
 <!-- CHART 4 ENDS--------------------------------------------------------------------------- -->
