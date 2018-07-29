@@ -14,11 +14,11 @@
 	
 <script>
 function myFunction() {
-    document.getElementById("demo").innerHTML = "We have a database with details on Auto insurance Collision and Comprehensive Claims by  Year, Make, Model and Auto Body type. We want to design a visualization to find out first how Average number of Claims (Collision and Comprehensive)  changed over Manufactured year to see if there is any relation in between and next - Average Number of Collisions and Average Number of Comprehensive Claims aby Year, Make and Model to assess which type of Car may have potential for higher cost of insurance.Chart 1 - Shows Average number of Collision and Average Number of Comprehensive Claims against manufactured Years. Chart 2 - Shows Average number of Collision and Average Number of Comprehensive Claims by Year, Make and Model.";
+    document.getElementById("demo").innerHTML = "<b><u>Description:</b></u>We have a database on Auto insurance Collision and Comprehensive Claims by  Year, Make, Model and Auto Body type from Canadian Automobile data. We have designed a visualization system to find out how Average number of Claims (Collision and Comprehensive) changed over Manufacturing years and also to find which Manufacturers automobiles had more number of each type of claims than others. The study can be utilized in many direction like assessing autombobiles with potential for higher cost of insurance. <Br><b><u>Model:</b></u> We are follwing an interactive slideshow model (also implemented as Stepper Visualization) where we have four different slides focussing on different dimensions of the data.<Br><b><u>Scenes:</b></u> There are four scenes in the slideshow.<Br><b><u>Anootations:</b></u> We have annotations on each slide which we get by hovering over the bar chart to see descriptive statements about the data.<Br><b><u>Triggers and Parameters:</b></u> The triggers are the Steps in the Stepper Visualization which run through the slides and effectively choses parameters based on each chart'srequirement.";
 }
 </script>
 
-<p align="left">
+<p align="right">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -216,7 +216,7 @@ var data = [
 <!-- CHART 1 ENDS--------------------------------------------------------------------------- -->
 <!-- CHART 1 ENDS--------------------------------------------------------------------------- -->
 	 
-          <p>This is the place to write the details for Page 1.</p>
+		<p><b><u>Details:</b></u>The visualization shows average number of Collisions Claims for all models in the data from year 2003 to 2015.<Br>We see that Scion/Subaru had relatively higher number of Claims and Nissan Cars on the other side had relatively lower number of Claims   </p>
         </div>
         <div class="annotation-step" id="step2-annotation">
           	  
