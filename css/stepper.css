@@ -39,15 +39,6 @@ a.step-link:hover, a.active {
   
 }
 
-#tooltip {
-    position: absolute;
-    z-index: 999
-}
-
-#tooltip-steps {
-    position: absolute;
-    z-index: 999
-}
 /* All the .annotation-step divs are inside
  * #annotation-steps. z-index ensures annotations
  * stay on top of visualization. */
