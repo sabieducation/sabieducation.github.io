@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="right">
+<p align="left">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -496,14 +496,14 @@ svg3.append("text")
         .attr("x", (width / 15))             
         .attr("y", 0  - (margin.top/20) + 5)
         .attr("text-anchor", "left")  
-        .style("font-size", "15px") 
+        .style("font-size", "20px") 
         .style("text-decoration", "underline")  
-        .text("Avg Comprehensive Claims by Make");
+        .text("Avg Number of Comprehensive Claims by Make");
         
 svg3.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left + 25)
-      .attr("x",0 - (height / 2))
+      .attr("x",0 - (height / 3))
       .attr("dy", ".2em")
       .style("text-anchor", "top")
       .text("Comp(Avg)"); 
@@ -688,8 +688,8 @@ var exampleData_2 = ["ACURA",
             <p>This is text up high.</p>
           </div>
           <div class="annotation" id="step3-low-annotation" >
-            <h4>Low Annotation Title</h4>
-            <p>This is text down low.</p>
+            <h4></h4>
+            <p></p>
           </div>
         </div>
 	<div class="annotation-step" id="step4-annotation">
@@ -728,18 +728,18 @@ var exampleData_2 = ["ACURA",
 <script>
 
     
-var width = 600;
-var height = 350;
+var width = 750;
+var height = 650;
 
 var maxValue = d3.select('#max')
     .node()
     .value;
 
 var margin = {
-    top: 30,
-    left: 10,
-    right: 20,
-    bottom: 30
+    top: 40,
+    left: 40,
+    right: 0,
+    bottom: 60
 };
 
 var svg2 = d3.select("#vis2")
