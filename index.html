@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="left">
+<p align="right">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -162,7 +162,7 @@ var data = [
       
   g.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
+      .attr("y", 0 - margin.left + 10)
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
@@ -234,7 +234,7 @@ var data = [
 <script>
 
     
-var width = 900;
+var width = 7500;
 var height = 550;
 
 var maxValue = d3.select('#maximum')
