@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="left">
+<p align="right">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -576,7 +576,7 @@ svg3.append("text")
     maxValue = d3.select('#max3')
         .node()
         .value;
-var exampleData = [137.76,
+var exampleData_3 = [137.76,
 151.36,
 186.78,
 62.23,
@@ -627,7 +627,7 @@ var exampleData = [137.76,
 85.91
 ];
 
-var exampleData_2 = ["ACURA",
+var exampleData_4 = ["ACURA",
 "AUDI",
 "BMW",
 "BUICK",
@@ -679,13 +679,13 @@ var exampleData_2 = ["ACURA",
 ];
 
 
-    maxValue = d3.max(exampleData);
-    xscale.domain(d3.range(exampleData_2.length));
+    maxValue = d3.max(exampleData_3);
+    xscale.domain(d3.range(exampleData_4.length));
     //xscale.domain(exampleData_2);
     //xscale.domain(["2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015"]);
     yscale.domain([0, maxValue]);
     var bars = svg3.selectAll(".bar")
-        .data(exampleData);
+        .data(exampleData_3);
     bars
         .enter()
         .append('rect')
@@ -709,7 +709,7 @@ var exampleData_2 = ["ACURA",
               .style("left", d3.event.pageX - 50 + "px")
               .style("top", d3.event.pageY - 70 + "px")
               .style("display", "inline-block")
-              .html(exampleData_2[i]+ ":" + "\t" + (d));
+              .html(exampleData_4[i]+ ":" + "\t" + (d));
         })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
         
@@ -721,7 +721,7 @@ var exampleData_2 = ["ACURA",
         .attr('y', height)
         .remove();
     
-    xscale.domain(exampleData_2);
+    xscale.domain(exampleData_4);
     
     svg3.select('.x.axis')
         .transition()
