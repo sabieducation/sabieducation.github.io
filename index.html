@@ -71,12 +71,12 @@ body {
 }
 
 </style>
-<svg width="660" height="400"></svg>
+<svg width="900" height="500"></svg>
 
 <script>
 
 var svg1 = d3.select("svg"),
-    margin = {top: 40, right: 20, bottom: 100, left: 60},
+    margin = {top: 30, right: 10, bottom: 20, left: 80},
     width = +svg1.attr("width") - margin.left - margin.right,
     height = +svg1.attr("height") - margin.top - margin.bottom;
 
@@ -182,8 +182,8 @@ var data = [
       
   g.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left + 10)
-      .attr("x",0 - (height / 2))
+      .attr("y", 0 - margin.left + 25)
+      .attr("x",0 - (height / 3))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .text("Avergae # Of Collisions"); 
