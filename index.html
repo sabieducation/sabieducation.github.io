@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="right">
+<p align="left">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -60,7 +60,7 @@ function myFunction() {
 <script>
 
 var svg1 = d3.select("svg"),
-    margin = {top: 10, right: 20, bottom: 80, left: 60},
+    margin = {top: 10, right: 10, bottom: 120, left: 80},
     width = +svg1.attr("width") - margin.left - margin.right,
     height = +svg1.attr("height") - margin.top - margin.bottom;
 
