@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="right">
+<p align="left">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -434,62 +434,210 @@ svg.append("text")
 <!-- CHART 3 STARTS--------------------------------------------------------------------------- -->
 <!-- CHART 3 STARTS--------------------------------------------------------------------------- -->
 
-<style>
-        .bar {
-            fill: steelblue;
+ <script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <style>
+        .labels {
+            fill: white;
         }
-    </style>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+     
+    
+    .bar {
+         fill: brown;
+         }
 
-<svg width="600" height="500"></svg>
+    .bar:hover {
+         fill: darkorange;
+    }  
+    .rectangle {
+	    fill: steelblue;
+            }
+    .rectangle:hover {
+	    fill: orange;
+    }
+    </style>
+
+    <input onclick="update()" value="" style="display:none"/>
+    <title>Text</title>
+    <input value="50" min="0" max="100" id="max" style="display:none"/>
+    <div id="vis2">
+    </div>
+    
 <script>
 
-    var svg3 = d3.select("svg"),
-        margin = 200,
-        width = svg3.attr("width") - margin,
-        height = svg3.attr("height") - margin;
+    
+var width = 600;
+var height = 350;
+
+var maxValue = d3.select('#max')
+    .node()
+    .value;
+
+var margin = {
+    top: 30,
+    left: 10,
+    right: 20,
+    bottom: 30
+};
+
+var svg3 = d3.select("#vis2")
+    .append("svg")
+    .attr('width', width)
+    .attr('height', height)
+    .append("g")
+    .attr("transform", "translate(" + margin.top + "," + margin.left + ")");
+    
+
+width = width - margin.left - margin.right;
+height = height - margin.top - margin.bottom;
+
+var yscale = d3.scaleLinear()
+    .range([height, 0])
+    .domain([0,150]);
+
+var xscale = d3.scaleBand()
+    .domain([2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015])
+    .range([0, width])
+    .padding(0.1);
+    
+
+    
+var duration = 1000;
+
+var xaxis = d3.axisBottom(xscale);
+
+var yaxis = d3.axisLeft(yscale);
+
+svg3.append('g')
+    .attr('transform', 'translate(0, ' + (height) + ')')
+    .attr('class', 'x axis');
+
+svg3.append('g')
+    .attr('class', 'y axis');
+    
+svg3.append("text")
+        .attr("x", (width / 5))             
+        .attr("y", 0 + 10 - (margin.top/20))
+        .attr("text-anchor", "left")  
+        .style("font-size", "15px") 
+        .style("text-decoration", "underline")  
+        .text("Average # of Comprehensive by Year");
+        
+svg3.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left + 30)
+      .attr("x",0 - (height / 2))
+      .attr("dy", ".25em")
+      .style("text-anchor", "top")
+      .text("Comprehensive(Avg)"); 
+      
+svg3.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")
+      .style("text-anchor", "bottom")
+      .text("Year");
+
+//function update() {
+
+    maxValue = d3.select('#max')
+        .node()
+        .value;
+    var exampleData = [69.96, 78.6,	87.23, 103.7, 110.7, 111.3, 110.1,
+    119.3, 127.1, 138.1, 149.1, 164.1,	169.6];
+    var exampleData_2 = [2003,2004,2005,2006,2007,2008,2009,2010,2011,2012
+                         ,2013,2014,2015];
+    maxValue = d3.max(exampleData);
+
+    //xscale.domain(d3.range(exampleData_2.length));
+    xscale.domain(exampleData_2);
+    //xscale.domain(["2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015"]);
+    yscale.domain([0, maxValue]);
+
+    var bars = svg3.selectAll(".bar")
+        .data(exampleData);
+
+    bars
+        .enter()
+        .append('rect')
+        .attr('class', 'bar')
+        .attr("fill", "green")
+        .attr('width', xscale.bandwidth())
+        .attr('height', 0)
+        .attr('y', height)
+        .merge(bars)
+        .transition()
+        .duration(duration)
+        .attr("height", function(d, i) {
+            return height - yscale(d);
+        })
+        .attr("y", function(d, i) {
+            return yscale(d);
+        })
+        .attr("width", xscale.bandwidth())
+        .attr("x", function(d, i) {
+            return xscale(i+2003);
+        })
+        
 
 
-    var xScale = d3.scaleBand().range ([0, width]).padding(0.4),
-        yScale = d3.scaleLinear().range ([height, 0]);
+    bars
+        .exit()
+        .transition()
+        .duration(duration)
+        .attr('height', 0)
+        .attr('y', height)
+        .remove();
 
-    var g = svg3.append("g")
-               .attr("transform", "translate(" + 100 + "," + 100 + ")");
+    var labels = svg3.selectAll('.label')
+        .data(exampleData);
 
-    var data = [{year: "2011", value: 45},
-                {year: "2012", value: 47},
-                {year: "2013", value: 52},
-                {year: "2014", value: 70},
-                {year: "2015", value: 75},
-                {year: "2016", value: 78}];
+    var new_labels = labels
+        .enter()
+        .append('text')
+        .attr('class', 'label')
+        .attr('opacity', 0)
+        .attr('y', height)
+        .attr('fill', 'white')
+        .attr('text-anchor', 'middle')
 
-        xScale.domain(data.map(function(d) { return d.year; }));
-        yScale.domain([0, d3.max(data, function(d) { return d.value; })]);
+    new_labels.merge(labels)
+        .transition()
+        .duration(duration)
+        .attr('opacity', 1)
+        .attr('x', function(d, i) {
+            return xscale(i+2003) + xscale.bandwidth() / 2;
+        })
+        .attr('y', function(d) {
+            return yscale(d) + 20;
+        })
+        .text(function(d) {
+            return d ;
+        });
 
-        g.append("g")
-         .attr("transform", "translate(0," + height + ")")
-         .call(d3.axisBottom(xScale));
+    labels
+        .exit()
+        .transition()
+        .duration(duration)
+        .attr('y', height)
+        .attr('opacity', 0)
+        .remove();
 
-        g.append("g")
-         .call(d3.axisLeft(yScale).tickFormat(function(d){
-             return "$" + d;
-         }).ticks(10))
-         .append("text")
-         .attr("y", 6)
-         .attr("dy", "0.71em")
-         .attr("text-anchor", "end")
-         .text("value");
-         
-        g.selectAll(".bar")
-         .data(data)
-         .enter().append("rect")
-         .attr("class", "bar")
-         .attr("x", function(d) { return xScale(d.year); })
-         .attr("y", function(d) { return yScale(d.value); })
-         .attr("width", xScale.bandwidth())
-         .attr("height", function(d) { return height - yScale(d.value); });
+    svg3.select('.x.axis')
+        .transition()
+        .duration(duration)
+        .call(xaxis);
 
-</script>
+    svg3.select('.y.axis')
+        .transition()
+        .duration(duration)
+        .call(yaxis);
+        
+    
+
+
+
+    </script>
+
 
 
 
