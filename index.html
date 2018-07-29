@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="right">
+<p align="left">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -808,7 +808,7 @@ var exampleData_4 = ["ACURA",
 <script>
 
     
-var width = 600;
+var width = 900;
 var height = 650;
 
 var maxValue = d3.select('#max')
@@ -920,8 +920,8 @@ svg2.append("text")
             return xscale(i+2003);
         }).on("mousemove", function(d, i){
             tooltip
-              .style("left", d3.event.pageX - 50 + "px")
-              .style("top", d3.event.pageY - 70 + "px")
+              .style("left", d3.event.pageX - 250 + "px")
+              .style("top", d3.event.pageY - 150 + "px")
               .style("display", "inline-block")
               .html("In " + exampleData_2[i]+ " (Avg) " + (d) + "<Br>" + " Comprehensive Claimed (all models)");})
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
