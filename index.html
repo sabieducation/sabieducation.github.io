@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="left">
+<p align="right">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -434,150 +434,62 @@ svg.append("text")
 <!-- CHART 3 STARTS--------------------------------------------------------------------------- -->
 <!-- CHART 3 STARTS--------------------------------------------------------------------------- -->
 
-<script src="https://d3js.org/d3.v4.min.js"></script>
 <style>
+        .bar {
+            fill: steelblue;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
 
-.bar {
-  fill: brown;
-}
-
-.bar:hover {
-  fill: yellow;
-}
-
-.axis--x path {
-  display: none;
-}
-
-</style>
-<svg width="660" height="400"></svg>
-
+<svg width="600" height="500"></svg>
 <script>
 
-var svg2 = d3.select("svg"),
-    margin = {top: 40, right: 20, bottom: 100, left: 60},
-    width = +svg2.attr("width") - margin.left - margin.right,
-    height = +svg2.attr("height") - margin.top - margin.bottom;
-
-var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
-    y = d3.scaleLinear().rangeRound([height, 0]);
-
-var g = svg2.append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var data = [
-{Make: "ACURA", Collisions: 137.76},
-{Make: "AUDI", Collisions: 151.36},
-{Make: "BMW", Collisions: 186.78},
-{Make: "BUICK", Collisions: 62.23},
-{Make: "BUICK/CHEV/GMC", Collisions: 109.57},
-{Make: "BUICK/CHEVROLET", Collisions: 104},
-{Make: "BUICK/SATURN", Collisions: 122.37},
-{Make: "CADILLAC", Collisions: 164.49},
-{Make: "CHEV/GMC/OLDS", Collisions: 48.5},
-{Make: "CHEV/PONTIAC", Collisions: 70.1},
-{Make: "CHEV/SATURN", Collisions: 44},
-{Make: "CHEVROLET", Collisions: 79.12},
-{Make: "CHEVROLET/GMC", Collisions: 141.64},
-{Make: "CHRYSLER", Collisions: 90.82},
-{Make: "CHRYSLER/DODGE", Collisions: 73.27},
-{Make: "DODGE", Collisions: 156.08},
-{Make: "FIAT", Collisions: 79.25},
-{Make: "FORD", Collisions: 139.28},
-{Make: "FORD/MERCURY", Collisions: 68.87},
-{Make: "GMC", Collisions: 110},
-{Make: "HONDA", Collisions: 91.73},
-{Make: "HUMMER", Collisions: 241.37},
-{Make: "HYUNDAI", Collisions: 72.65},
-{Make: "INFINITI", Collisions: 130.34},
-{Make: "JAGUAR", Collisions: 145.71},
-{Make: "JEEP", Collisions: 108.92},
-{Make: "KIA", Collisions: 82.84},
-{Make: "LAND ROVER", Collisions: 319.42},
-{Make: "LEXUS", Collisions: 139.24},
-{Make: "LINCOLN", Collisions: 122.59},
-{Make: "MAZDA", Collisions: 79.31},
-{Make: "MERCEDES-BENZ", Collisions: 159.51},
-{Make: "MINI", Collisions: 97.22},
-{Make: "MITSUBISHI", Collisions: 125.15},
-{Make: "NISSAN", Collisions: 102.05},
-{Make: "OLDSMOBILE", Collisions: 38.4},
-{Make: "PONTIAC", Collisions: 55.32},
-{Make: "PONTIAC/SATURN", Collisions: 56},
-{Make: "PORSCHE", Collisions: 218.42},
-{Make: "SAAB", Collisions: 104.85},
-{Make: "SATURN", Collisions: 64.5},
-{Make: "SCION", Collisions: 105.85},
-{Make: "SCION/SUBARU", Collisions: 152.5},
-{Make: "SMART", Collisions: 47},
-{Make: "SUBARU", Collisions: 118.34},
-{Make: "SUZUKI", Collisions: 64.71},
-{Make: "TOYOTA", Collisions: 109.28},
-{Make: "VOLKSWAGEN", Collisions: 98.71},
-{Make: "VOLVO", Collisions: 85.91}
-];
-
-  x.domain(data.map(function(d) { return d.Make; }));
-  y.domain([0, d3.max(data, function(d) { return d.Collisions; })+50]);
-
-  g.append("g")
-      .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x))
-      .selectAll("text")  
-      .style("text-anchor", "end")
-      .attr("dx", "-.8em")
-      .attr("dy", ".15em")
-      .attr("transform", "rotate(-65)");;
-  
-  g.append("text")             
-      .attr("transform",
-            "translate(" + (width/2) + " ," + 
-                           (height + margin.top + 20) + ")");
-      //.style("text-anchor", "bottom")
-      //.text("Make");
-      //.attr("dx", "-.8em")
-      //.attr("dy", ".15em")
-      //.attr("transform", "rotate(-65)");
-      
-  g.append("text")
-        .attr("x", (width / 2))             
-        .attr("y", 0 - (margin.top) + 60)
-        .attr("text-anchor", "middle")  
-        .style("font-size", "16px") 
-        .style("text-decoration", "underline")  
-        .text("Make Vs Average # of Comprehensive");
-        
-  g.append("g")
-      .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y).ticks(10))
-      .append("text")
-      .attr("transform", "rotate(-90)");
-      
-      
-  g.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .text("Avergae # Of Comprehensive"); 
-      
-
-  g.selectAll(".bar")
-    .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .transition()
-      .duration(1000)
-      .attr("x", function(d) { return x(d.Make); })
-      .attr("y", function(d) { return y(d.Collisions); })
-      .attr("width", x.bandwidth())
-      .attr("height", function(d) { return height - y(d.Collisions); });
+    var svg = d3.select("svg"),
+        margin = 200,
+        width = svg.attr("width") - margin,
+        height = svg.attr("height") - margin;
 
 
-   </script>
+    var xScale = d3.scaleBand().range ([0, width]).padding(0.4),
+        yScale = d3.scaleLinear().range ([height, 0]);
 
+    var g = svg.append("g")
+               .attr("transform", "translate(" + 100 + "," + 100 + ")");
+
+    var data = [{year: "2011", value: 45},
+                {year: "2012", value: 47},
+                {year: "2013", value: 52},
+                {year: "2014", value: 70},
+                {year: "2015", value: 75},
+                {year: "2016", value: 78}];
+
+        xScale.domain(data.map(function(d) { return d.year; }));
+        yScale.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+        g.append("g")
+         .attr("transform", "translate(0," + height + ")")
+         .call(d3.axisBottom(xScale));
+
+        g.append("g")
+         .call(d3.axisLeft(yScale).tickFormat(function(d){
+             return "$" + d;
+         }).ticks(10))
+         .append("text")
+         .attr("y", 6)
+         .attr("dy", "0.71em")
+         .attr("text-anchor", "end")
+         .text("value");
+         
+        g.selectAll(".bar")
+         .data(data)
+         .enter().append("rect")
+         .attr("class", "bar")
+         .attr("x", function(d) { return xScale(d.year); })
+         .attr("y", function(d) { return yScale(d.value); })
+         .attr("width", xScale.bandwidth())
+         .attr("height", function(d) { return height - yScale(d.value); });
+
+</script>
 
 
 
