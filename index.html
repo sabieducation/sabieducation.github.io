@@ -69,7 +69,7 @@ function myFunction() {
 }
 
 </style>
-<svg width="900" height="500"></svg>
+<svg width="600" height="500"></svg>
 
 <script>
 
@@ -200,8 +200,8 @@ var data = [
               .style("left", d3.event.pageX - 50 + "px")
               .style("top", d3.event.pageY - 70 + "px")
               .style("display", "inline-block")
-              .html((d.Make) + " had on an average " + "\t" + 
-              (d.Collisions) + " Number of Collisions Claims from Year 2003 to 2015");
+              .html((d.Make) + " had (Avg) "  + 
+              (d.Collisions) + "<Br>" + " Collisions Claims");
         })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
     		
@@ -274,7 +274,7 @@ var data = [
 <script>
 
     
-var width = 750;
+var width = 600;
 var height = 650;
 
 var maxValue = d3.select('#maximum')
@@ -389,9 +389,9 @@ svg.append("text")
               .style("left", d3.event.pageX - 50 + "px")
               .style("top", d3.event.pageY - 70 + "px")
               .style("display", "inline-block")
-              .html("In the Year " + exampleData_2[i]+ " there were on an average" + "\t" + (d) 
-		    + " Numbers of Collisions Claims considering all models");})
+              .html("In " + exampleData_2[i]+ " (Avg) " + (d) + "<Br>" + " Collisions Claimed (all models)");})
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
+
         
 
 
@@ -518,7 +518,7 @@ svg.append("text")
     
 <script>
     
-var width = 900;
+var width = 600;
 var height = 500;
 var maxValue = d3.select('#max3')
     .node()
@@ -710,8 +710,8 @@ var exampleData_4 = ["ACURA",
               .style("left", d3.event.pageX - 50 + "px")
               .style("top", d3.event.pageY - 70 + "px")
               .style("display", "inline-block")
-              .html((exampleData_4[i]) + " had on an average " + "\t" + 
-              (d) + " Number of Comprehensive Claims from Year 2003 to 2015");
+              .html((exampleData_4[i]) + " had (Avg) "  + 
+              (d) + "<Br>" + " Comprhensive Claims");
         })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
         
@@ -808,7 +808,7 @@ var exampleData_4 = ["ACURA",
 <script>
 
     
-var width = 750;
+var width = 600;
 var height = 650;
 
 var maxValue = d3.select('#max')
@@ -923,9 +923,8 @@ svg2.append("text")
               .style("left", d3.event.pageX - 50 + "px")
               .style("top", d3.event.pageY - 70 + "px")
               .style("display", "inline-block")
-              .html("In the Year " + exampleData_2[i] + " there were on an average" + "\t" + (d) 
-		    + " Numbers of Comprehensive Claims considering all models");})
-    	.on("mouseout", function(d){ tooltip.style("display", "none");});
+              .html("In " + exampleData_2[i]+ " (Avg) " + (d) + "<Br>" + " Comprehensive Claimed (all models)");})
+    		.on("mouseout", function(d){ tooltip.style("display", "none");});
         
 
 
