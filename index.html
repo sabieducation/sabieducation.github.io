@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="right">
+<p align="left">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -429,7 +429,7 @@ svg.append("text")
         </div>
         <div class="annotation-step" id="step3-annotation">
           <div class="annotation" id="step3-high-annotation" >
-            <h4>Average Number of Comprehensive Claims from Year 2003 to 2015</h4>
+            <h4></h4>
             
 <!-- CHART 3 STARTS--------------------------------------------------------------------------- -->
 <!-- CHART 3 STARTS--------------------------------------------------------------------------- -->
@@ -457,9 +457,9 @@ svg.append("text")
     </style>
 
     <input onclick="update()" value="" style="display:none"/>
-    <title>Text</title>
-    <input value="50" min="0" max="100" id="max" style="display:none"/>
-    <div id="vis2">
+    
+    <input value="50" min="0" max="100" id="max3" style="display:none"/>
+    <div id="vis3">
     </div>
     
 <script>
@@ -468,7 +468,7 @@ svg.append("text")
 var width = 600;
 var height = 350;
 
-var maxValue = d3.select('#max')
+var maxValue = d3.select('#max3')
     .node()
     .value;
 
@@ -479,7 +479,7 @@ var margin = {
     bottom: 30
 };
 
-var svg3 = d3.select("#vis2")
+var svg3 = d3.select("#vis3")
     .append("svg")
     .attr('width', width)
     .attr('height', height)
@@ -539,7 +539,7 @@ svg3.append("text")
 
 //function update() {
 
-    maxValue = d3.select('#max')
+    maxValue = d3.select('#max3')
         .node()
         .value;
     var exampleData = [69.96, 78.6,	87.23, 103.7, 110.7, 111.3, 110.1,
@@ -659,7 +659,7 @@ svg3.append("text")
         </div>
 	<div class="annotation-step" id="step4-annotation">
           <div class="annotation" id="step4-high-annotation" >
-            <h4>High Annotation Title</h4>
+            <h4></h4>
 		  
 		  
 <!-- CHART 4 STARTS--------------------------------------------------------------------------- -->
@@ -685,7 +685,7 @@ svg3.append("text")
     </style>
 
     <input onclick="update()" value="" style="display:none"/>
-    <title>Text</title>
+    
     <input value="50" min="0" max="100" id="max" style="display:none"/>
     <div id="vis2">
     </div>
