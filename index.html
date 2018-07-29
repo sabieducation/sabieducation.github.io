@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="right">
+<p align="left">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -242,7 +242,7 @@ var maxValue = d3.select('#maximum')
 var margin = {
     top: 40,
     left: 40,
-    right: 10,
+    right: 0,
     bottom: 60
 };
 
@@ -291,7 +291,7 @@ svg.append("text")
         
 svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left + 30)
+      .attr("y", 0 - margin.left + 50)
       .attr("x",0 - (height / 3))
       .attr("dy", ".25em")
       .style("text-anchor", "top")
