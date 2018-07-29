@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="right">
+<p align="left">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -193,8 +193,6 @@ var data = [
     .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      //.transition()
-      //.duration(1000)
       .attr("x", function(d) { return x(d.Make); })
       .attr("y", function(d) { return y(d.Collisions); })
       .attr("width", x.bandwidth())
@@ -207,14 +205,14 @@ var data = [
               .html((d.Make) + ":" + "\t" + (d.Collisions));
         })
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
+    		
 
 
 </script>
 
 
 
-
-		  
+	  
 
 <!-- CHART 1 ENDS--------------------------------------------------------------------------- -->
 <!-- CHART 1 ENDS--------------------------------------------------------------------------- -->
