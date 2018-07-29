@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="center">
+<p align="right">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -274,7 +274,7 @@ var data = [
 <script>
 
     
-var width = 600;
+var width = 900;
 var height = 650;
 
 var maxValue = d3.select('#maximum')
@@ -386,8 +386,8 @@ svg.append("text")
         })
 	.on("mousemove", function(d, i){
             tooltip
-              .style("left", d3.event.pageX - 50 + "px")
-              .style("top", d3.event.pageY - 70 + "px")
+              .style("left", d3.event.pageX - 250 + "px")
+              .style("top", d3.event.pageY - 150 + "px")
               .style("display", "inline-block")
               .html("In " + exampleData_2[i]+ " (Avg) " + (d) + "<Br>" + " Collisions Claimed (all models)");})
     		.on("mouseout", function(d){ tooltip.style("display", "none");});
@@ -518,7 +518,7 @@ svg.append("text")
     
 <script>
     
-var width = 600;
+var width = 900;
 var height = 500;
 var maxValue = d3.select('#max3')
     .node()
@@ -707,8 +707,8 @@ var exampleData_4 = ["ACURA",
             return xscale(i);
         }).on("mousemove", function(d, i){
             tooltip
-              .style("left", d3.event.pageX - 50 + "px")
-              .style("top", d3.event.pageY - 70 + "px")
+              .style("left", d3.event.pageX - 250 + "px")
+              .style("top", d3.event.pageY - 150 + "px")
               .style("display", "inline-block")
               .html((exampleData_4[i]) + " had (Avg) "  + 
               (d) + "<Br>" + " Comprhensive Claims");
