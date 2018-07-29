@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="left">
+<p align="right">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -454,8 +454,8 @@ svg.append("text")
     
 <script>
     
-var width = 600;
-var height = 350;
+var width = 900;
+var height = 500;
 var maxValue = d3.select('#max3')
     .node()
     .value;
@@ -503,8 +503,8 @@ svg3.append("text")
 svg3.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left + 25)
-      .attr("x",0 - (height / 3))
-      .attr("dy", ".25em")
+      .attr("x",0 - (height / 2))
+      .attr("dy", ".2em")
       .style("text-anchor", "top")
       .text("Comp(Avg)"); 
       
