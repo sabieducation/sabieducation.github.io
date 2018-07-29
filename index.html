@@ -18,7 +18,7 @@ function myFunction() {
 }
 </script>
 
-<p align="left">
+<p align="right">
   <input type="button" onclick="myFunction()" value="About the Visualization" />
 </p>
 
@@ -76,7 +76,7 @@ body {
 <script>
 
 var svg1 = d3.select("svg"),
-    margin = {top: 30, right: 10, bottom: 20, left: 80},
+    margin = {top: 30, right: 10, bottom: 80, left: 80},
     width = +svg1.attr("width") - margin.left - margin.right,
     height = +svg1.attr("height") - margin.top - margin.bottom;
 
@@ -230,6 +230,9 @@ var data = [
     <link rel="stylesheet" href="../base.css">
     <script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <style>
+     body {
+     background-color: #F1F3F3    
+     }
         .labels {
             fill: white;
         }
@@ -247,6 +250,19 @@ var data = [
     .rectangle:hover {
 	    fill: orange;
     }
+	    
+    .toolTip {
+    position: absolute;
+    display: none;
+    min-width: 10px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #6F257F;
+    padding: 14px;
+    text-align: center;
+    }
+	    
+	    
     </style>
 
     <input onclick="update()" value="" style="display:none"/>
@@ -279,7 +295,7 @@ var svg = d3.select("#vis")
     .append("g")
     .attr("transform", "translate(" + margin.top + "," + margin.left + ")");
     
-
+var tooltip = d3.select("body").append("div").attr("class", "toolTip");
 width = width - margin.left - margin.right;
 height = height - margin.top - margin.bottom;
 
@@ -358,8 +374,6 @@ svg.append("text")
         .attr('height', 0)
         .attr('y', height)
         .merge(bars)
-        .transition()
-        .duration(duration)
         .attr("height", function(d, i) {
             return height - yscale(d);
         })
@@ -370,6 +384,13 @@ svg.append("text")
         .attr("x", function(d, i) {
             return xscale(i+2003);
         })
+	.on("mousemove", function(d, i){
+            tooltip
+              .style("left", d3.event.pageX - 50 + "px")
+              .style("top", d3.event.pageY - 70 + "px")
+              .style("display", "inline-block")
+              .html("Y" + exampleData_2[i]+ ":" + "\t" + (height - yscale(d)));})
+    	.on("mouseout", function(d){ tooltip.style("display", "none");});
         
 
 
@@ -453,6 +474,10 @@ svg.append("text")
 
 <script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <style>
+
+    body {
+     background-color: #F1F3F3    
+    }
         .labels {
             fill: white;
         }
@@ -469,6 +494,17 @@ svg.append("text")
             }
     .rectangle:hover {
 	    fill: orange;
+    }
+	    
+    .toolTip {
+    position: absolute;
+    display: none;
+    min-width: 10px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #6F257F;
+    padding: 14px;
+    text-align: center;
     }
     </style>
 
@@ -497,7 +533,7 @@ var svg3 = d3.select("#vis3")
     .attr('height', height)
     .append("g")
     .attr("transform", "translate(" + margin.top + "," + margin.left + ")");
-    
+var tooltip = d3.select("body").append("div").attr("class", "toolTip");    
 width = width - margin.left - margin.right;
 height = height - margin.top - margin.bottom;
 var yscale = d3.scaleLinear()
@@ -658,8 +694,6 @@ var exampleData_2 = ["ACURA",
         .attr('height', 0)
         .attr('y', height)
         .merge(bars)
-        .transition()
-        .duration(duration)
         .attr("height", function(d, i) {
             return height - yscale(d);
         })
@@ -669,7 +703,14 @@ var exampleData_2 = ["ACURA",
         .attr("width", xscale.bandwidth())
         .attr("x", function(d,i) {
             return xscale(i);
+        }).on("mousemove", function(d, i){
+            tooltip
+              .style("left", d3.event.pageX - 50 + "px")
+              .style("top", d3.event.pageY - 70 + "px")
+              .style("display", "inline-block")
+              .html(exampleData_2[i]+ ":" + "\t" + (height - yscale(d)));
         })
+    		.on("mouseout", function(d){ tooltip.style("display", "none");});
         
     bars
         .exit()
@@ -726,7 +767,9 @@ var exampleData_2 = ["ACURA",
 		  
     <script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <style>
-        
+    body {
+     background-color: #F1F3F3    
+    }  
     .bar {
          fill: brown;
          }
@@ -739,6 +782,16 @@ var exampleData_2 = ["ACURA",
             }
     .rectangle:hover {
 	    fill: orange;
+    }
+    .toolTip {
+    position: absolute;
+    display: none;
+    min-width: 10px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #6F257F;
+    padding: 14px;
+    text-align: center;
     }
     </style>
 
@@ -772,6 +825,7 @@ var svg2 = d3.select("#vis2")
     .append("g")
     .attr("transform", "translate(" + margin.top + "," + margin.left + ")");
     
+var tooltip = d3.select("body").append("div").attr("class", "toolTip");  
 
 width = width - margin.left - margin.right;
 height = height - margin.top - margin.bottom;
@@ -851,8 +905,6 @@ svg2.append("text")
         .attr('height', 0)
         .attr('y', height)
         .merge(bars)
-        .transition()
-        .duration(duration)
         .attr("height", function(d, i) {
             return height - yscale(d);
         })
@@ -862,7 +914,13 @@ svg2.append("text")
         .attr("width", xscale.bandwidth())
         .attr("x", function(d, i) {
             return xscale(i+2003);
-        })
+        }).on("mousemove", function(d, i){
+            tooltip
+              .style("left", d3.event.pageX - 50 + "px")
+              .style("top", d3.event.pageY - 70 + "px")
+              .style("display", "inline-block")
+              .html("Y" + exampleData_2[i]+ ":" + "\t" + (height - yscale(d)));})
+    	.on("mouseout", function(d){ tooltip.style("display", "none");});
         
 
 
