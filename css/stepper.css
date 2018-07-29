@@ -53,11 +53,11 @@ a.step-link:hover, a.active {
  * stay on top of visualization. */
 #annotation-steps {
   position: absolute;
-  z-index: 40;
+  z-index: 00;
 }
 
 #vis-nav {
-  z-index: 0;
+  z-index: 00;
 }
 
 /* This is where you would create the actual visualization.
